@@ -16,14 +16,13 @@ function loginCallback(err, user){
 		console.log('login error: ' + err.message);
 	}
 	else{
-		console.log('user: ' + user);
+		console.log('login successful');
 	}
 }
 
 function errorCallback(error) {
 	console.log('background error ' + error.message);
 }
-
 
 function deviceCallback (error, devices) {
 	if(error) {
@@ -34,14 +33,28 @@ function deviceCallback (error, devices) {
     deviceId = device
   })
 }
-turnOnOff();
 
-function turnOnOff(){
-
-  cloud.onOffDevice(device, true, function (err, result) {
+function turnOnOff(turnOn){
+  cloud.onOffDevice(device, turnOn, function (err, result) {
     console.log(result);
-    console.log("WOHOO DEN ER På");
   })
 }
 
-module.exports.turnOnOff = turnOnOff;
+var express = require('express');
+var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+app.post('/start', function(request, response){
+    turnOnOff(true)
+    response.sendStatus(200);
+});
+
+app.post('/stop', function(request, response){
+    turnOnOff(false)
+    response.sendStatus(200);
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
