@@ -6,10 +6,17 @@ var publicKey    = 'FEHUVEW84RAFR5SP22RABURUPHAFRUNU'
   , tokenSecret  = 'ca207a7e1daa227697cace0739421a8b'
   , cloud;
 
-var device = {id: 927588} ;
+var device = {id: 927588};
+
 cloud = new TelldusAPI.TelldusAPI({ publicKey  : publicKey, privateKey : privateKey })
 			.login(token, tokenSecret, loginCallback)
 			.on('error', errorCallback);
+
+var isPowerOn = function isPowerOn(){
+  cloud.getDeviceInfo(device, function(err, res){
+    return res.parameter[2].value;
+  });
+}();
 
 function loginCallback(err, user){
 	if(err) {
@@ -28,33 +35,32 @@ function deviceCallback (error, devices) {
 	if(error) {
     console.log(error);
   }
-  var id;
   devices.forEach(function (device) {
     deviceId = device
   })
 }
 
-function turnOnOff(turnOn){
-  cloud.onOffDevice(device, turnOn, function (err, result) {
-    console.log(result);
-  })
+function getIsPowerOn(){
+  return isPowerOn;
 }
 
-var express = require('express');
-var app = express();
+function start(request, response) {
+  console.log("start");
+  console.log("stopp");
+  cloud.onOffDevice(device, true, function (err, result) {
+    if(err)  console.log(err);
+  })
+  response.sendStatus(200);
+}
 
-app.set('port', (process.env.PORT || 5000));
+function stop(request, response) {
+  console.log("stopp");
+  cloud.onOffDevice(device, false, function (err, result) {
+    if(err)  console.log(err);
+  })
+  response.sendStatus(200);
+}
 
-app.post('/start', function(request, response){
-    turnOnOff(true)
-    response.sendStatus(200);
-});
-
-app.post('/stop', function(request, response){
-    turnOnOff(false)
-    response.sendStatus(200);
-});
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
+module.exports.getIsPowerOn = getIsPowerOn;
+module.exports.start = start;
+module.exports.stop = stop;
