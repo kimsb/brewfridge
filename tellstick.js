@@ -43,3 +43,5 @@ function turnOnOff(){
     console.log("WOHOO DEN ER På");
   })
 }
+
+module.exports.turnOnOff = turnOnOff;

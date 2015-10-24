@@ -4,11 +4,11 @@
   },
   "name": "BrewFridge",
   "description": "THIS IS OUR BREW FRIDGE",
-  "version": "1.0.0",
+  "version": "2.11.3",
   "main": "tellstick.js",
   "devDependencies": {},
   "scripts": {
-    "test": "turnOnOff"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
