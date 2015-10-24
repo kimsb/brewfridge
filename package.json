@@ -1,5 +1,26 @@
 {
   "dependencies": {
     "telldus-live": "^0.2.1"
-  }
+  },
+  "name": "BrewFridge",
+  "description": "THIS IS OUR BREW FRIDGE",
+  "version": "1.0.0",
+  "main": "tellstick.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "turnOnOff"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simenstoa/brew-fridge.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Eksil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simenstoa/brew-fridge/issues"
+  },
+  "homepage": "https://github.com/simenstoa/brew-fridge#readme"
 }
