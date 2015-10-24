@@ -1,26 +1,27 @@
 {
+  "name": "node-js-getting-started",
+  "version": "0.1.5",
+  "description": "A sample Node.js app using Express 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
+    "ejs": "2.3.3",
+    "express": "4.13.3",
     "telldus-live": "^0.2.1"
   },
-  "name": "BrewFridge",
-  "description": "THIS IS OUR BREW FRIDGE",
-  "version": "2.11.3",
-  "main": "tellstick.js",
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": "0.12.7"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simenstoa/brew-fridge.git"
+    "url": "https://github.com/heroku/node-js-getting-started"
   },
   "keywords": [
-    "test"
+    "node",
+    "heroku",
+    "express"
   ],
-  "author": "Eksil",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/simenstoa/brew-fridge/issues"
-  },
-  "homepage": "https://github.com/simenstoa/brew-fridge#readme"
+  "license": "MIT"
 }
