@@ -1,1 +1,5 @@
-{}
+{
+  "dependencies": {
+    "telldus-live": "^0.2.1"
+  }
+}
