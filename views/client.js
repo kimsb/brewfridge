@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  var url = "https://brew-fridge.herokuapp.com/";
+  var url = "https://brew-fridge.herokuapp.com";
   //var url = "http://localhost:5000";
   var data = {on: true};
 
