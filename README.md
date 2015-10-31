@@ -4,7 +4,7 @@
 
 [Particle Cloud API](https://docs.particle.io/reference/api/)
 
-[Board Setup](http://www.instructables.com/id/Particle-Core-Temperature-Sensor/step2/Circuit/)
+[Board Setup](http://johnny-five.io/examples/temperature-ds18b20/)
 
 [Johnny Five](http://johnny-five.io/platform-support/#particle-photon)
 
