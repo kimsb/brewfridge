@@ -1,9 +1,9 @@
 # Eksil Brew Fridge
 
-[![Photon Maker Kit](https://docs.particle.io/datasheets/photon-shields/#photon-maker-kit-contents)]
-[![Particle Cloud API](https://docs.particle.io/reference/api/)]
-[![Board Setup](http://www.instructables.com/id/Particle-Core-Temperature-Sensor/step2/Circuit/)]
-[![Johnny Five](http://johnny-five.io/platform-support/#particle-photon)]
+[Photon Maker Kit](https://docs.particle.io/datasheets/photon-shields/#photon-maker-kit-contents)
+[Particle Cloud API](https://docs.particle.io/reference/api/)
+[Board Setup](http://www.instructables.com/id/Particle-Core-Temperature-Sensor/step2/Circuit/)
+[Johnny Five](http://johnny-five.io/platform-support/#particle-photon)
 
 A Node.js app using [Express 4](http://expressjs.com/).
 
