@@ -7,6 +7,7 @@
 [Board Setup](http://johnny-five.io/examples/temperature-ds18b20/)
 
 [Johnny Five](http://johnny-five.io/platform-support/#particle-photon)
+[Temperature example](https://www.hackster.io/AgustinP/logging-temperature-data-using-the-spark-core-b9c60c)
 
 A Node.js app using [Express 4](http://expressjs.com/).
 
