@@ -1,8 +1,16 @@
-# node-js-getting-started
+# Eksil Brew Fridge
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+[Photon Maker Kit](https://docs.particle.io/datasheets/photon-shields/#photon-maker-kit-contents)
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+[Particle Cloud API](https://docs.particle.io/reference/api/)
+
+[Board Setup](http://johnny-five.io/examples/temperature-ds18b20/)
+
+[Johnny Five](http://johnny-five.io/platform-support/#particle-photon)
+
+[Temperature example](https://www.hackster.io/AgustinP/logging-temperature-data-using-the-spark-core-b9c60c)
+
+A Node.js app using [Express 4](http://expressjs.com/).
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -11,8 +19,6 @@ This application supports the [Getting Started with Node on Heroku](https://devc
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
 $ npm install
 $ npm start
 ```
