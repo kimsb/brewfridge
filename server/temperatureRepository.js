@@ -1,8 +1,7 @@
-var pg = require('pg')
-pg.defaults.poolSize = 10;
+var pg = require('pg');
 
 function insertTemp(temp) {
-  pg.connect(process.env.DATABASE_URL, function(err, client) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if(handleError(err)){
       console.log("error i pg connection");
       return;
@@ -17,12 +16,13 @@ function insertTemp(temp) {
           console.log("Insert temperature with id: " + result.rows[0].id)
         }
       });
+      done();
   });
 }
 
 function getTemp(response) {
   console.log("get Temp i repo kallt");
-  pg.connect(process.env.DATABASE_URL, function(err, client) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         if(handleError(err,client)) {
             console.log("error i pg connection");
             return;
@@ -38,6 +38,7 @@ function getTemp(response) {
         query.on('end', function(result) {
             response.send(result.rows);
           });
+          done();
         });
       }
 
