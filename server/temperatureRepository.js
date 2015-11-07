@@ -22,7 +22,6 @@ function getTemp(response) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
         if (err) {
           console.log("error")
-          throw err;
         }
         console.log('Connected to postgres! ');
 
