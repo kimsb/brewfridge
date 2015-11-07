@@ -12,7 +12,7 @@ var headers = {
 // Configure the request
 var options = {
    url: photonUrl + deviceId + "/temp",
-   method: 'POST',
+   method: 'GET',
    headers: headers,
 }
 
@@ -20,17 +20,14 @@ var options = {
 function getTemperature(callback) {
   console.log("temp BLir kallt!");
   request(options, function (error, response, body) {
-    console.log("error: " + error);
-    console.log("response: " + response),
-    console.log("body: " + body);
     if(error){
       console.log(error);
     }
      if (!error && response.statusCode == 200) {
          // Print out the response body
          var data = JSON.parse(body);
-         console.log(data.return_value)
-         callback(data.return_value);
+         console.log(data.result);
+         callback(data.result);
      }
   })
 

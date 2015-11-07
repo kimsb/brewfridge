@@ -3,8 +3,8 @@ var app = express();
 var tellstick = require('./server/tellstick.js');
 var temperature = require('./server/temperature.js');
 var tempRepo = require('./server/temperatureRepository.js');
-
-var target = 23;
+var currentTemp = 0;
+var target = 15;
 var interval = 1000*30;
 app.set('port', (process.env.PORT || 5000));
 
@@ -38,8 +38,13 @@ app.get('/state', function(request, response){
 app.get('/data', function (request, response) {
   console.log("mottatt request")
   tempRepo.getTemp(response);
+});
+
+app.get('/currentTemp', function (request, response) {
+  response.send(currentTemp);
 })
 setInterval(fridgeController, interval);
+
 fridgeController();
 function fridgeController () {
   temperature.getTemperature(onGetTemperature);
@@ -49,7 +54,8 @@ function onGetTemperature(temp){
   console.log("Temperatur er: " +temp);
   if(temp != -127){
     tempRepo.insertTemp(temp);
-    if(temp < target) {
+    currentTemp = temp.toFixed(2);
+    if(temp > target) {
       tellstick.start();
     }
     else if (temp > target) {
@@ -59,6 +65,7 @@ function onGetTemperature(temp){
       console.log("Temperaturen er fin gjor ingen ting");
     }
   } else {
-    console.log("Klarte ikke lese temperatur.");
+    console.log("Klarte ikke lese temperatur. Henter på nytt");
+    fridgeController();
   }
 }
