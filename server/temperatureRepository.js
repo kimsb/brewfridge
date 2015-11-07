@@ -40,7 +40,7 @@ function getTemp(response) {
         });
       }
 
-  function handleError(error, client) {
+  function handleError(err, client) {
     // no error occurred, continue with the request
      if(!err) return false;
 
