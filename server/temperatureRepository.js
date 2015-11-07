@@ -1,4 +1,4 @@
-var pg = require('pg');
+var pg = require('pg').defaults.poolSize = 6;
 
 function insertTemp(temp) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
