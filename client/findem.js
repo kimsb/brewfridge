@@ -21,7 +21,8 @@ $(document).ready(function() {
   $.get(url + "/data", graph.buildGraph);
 
   $.get(url + "/currentTemp", function(data) {
-    $(".result").html(data + "\xB0 C er temperaturen nå");
+    var status = data.isOn ? "på" : "av";
+    $(".result").html(data.temp + "\xB0 C er temperaturen nå og kjøleskapet er " + status);
   });
 
   $('.startbutton').click(start);

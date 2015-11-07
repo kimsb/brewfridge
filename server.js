@@ -33,7 +33,8 @@ app.get('/data', function (request, response) {
 });
 
 app.get('/currentTemp', function (request, response) {
-  response.send(currentTemp);
+  var responseObj = {temp: currentTemp, isOn: tellstick.getIsPowerOn()};
+  response.send(responseObj);
 })
 setInterval(fridgeController, interval);
 
@@ -50,7 +51,7 @@ function onGetTemperature(temp){
     if(temp > target) {
       tellstick.start();
     }
-    else if (temp > target) {
+    else if (temp < target) {
       tellstick.stop();
     }
     else{
