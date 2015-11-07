@@ -18,10 +18,6 @@ $(document).ready(function() {
     on: true
   };
 
-  $.get(url + "/state", function(data) {
-    $(".result").html(data.body);
-  })
-
   $.get(url + "/data", graph.buildGraph);
 
   $.get(url + "/currentTemp", function(data) {

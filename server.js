@@ -28,15 +28,7 @@ app.post('/stop', function(request, response){
     response.sendStatus(200);
 });
 
-app.get('/state', function(request, response){
-    console.log(response)
-    response.body = tellstick.getIsPowerOn();
-    console.log(response.body)
-    response.sendStatus(200);
-});
-
 app.get('/data', function (request, response) {
-  console.log("mottatt request")
   tempRepo.getTemp(response);
 });
 

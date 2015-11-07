@@ -18,10 +18,9 @@ var options = {
 
 
 function getTemperature(callback) {
-  console.log("temp BLir kallt!");
   request(options, function (error, response, body) {
     if(error){
-      console.log(error);
+      console.log("Photon error: /n" +error);
     }
      if (!error && response.statusCode == 200) {
          // Print out the response body

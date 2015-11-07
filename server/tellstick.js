@@ -15,21 +15,21 @@ cloud = new TelldusAPI.TelldusAPI({ publicKey  : publicKey, privateKey : private
 
 function loginCallback(err, user){
 	if(err) {
-		console.log('login error: ' + err.message);
+		console.log('login error tellstick: ' + err.message);
 	}
 	else{
     //stop();
-		console.log('login successful');
+		console.log('login successfull telstick');
 	}
 }
 
 function errorCallback(error) {
-	console.log('background error ' + error.message);
+	console.log('background error tellstick: ' + error.message);
 }
 
 function deviceCallback (error, devices) {
 	if(error) {
-    console.log(error);
+    console.log(" devicecallback error tellstick /n" +error);
   }
   devices.forEach(function (device) {
     deviceId = device
@@ -44,7 +44,7 @@ function start() {
   if(!isPowerOn){
     console.log("Starter tellstick");
     cloud.onOffDevice(device, true, function (err, result) {
-      if(err)  console.log(err);
+      if(err)  console.log("start error /n" + err);
     });
   }
   isPowerOn = true;
@@ -54,7 +54,7 @@ function stop() {
   if(isPowerOn){
     console.log("Stopper tellstick");
     cloud.onOffDevice(device, false, function (err, result) {
-      if(err)  console.log(err);
+      if(err)  console.log("Stop error /n" + err);
     });
   }
   isPowerOn = false;
