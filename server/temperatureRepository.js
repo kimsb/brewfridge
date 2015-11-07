@@ -17,6 +17,7 @@ function insertTemp(temp) {
 }
 
 function getTemp(response) {
+  console.log("get Temp i repo kallt");
   pg.connect(process.env.DATABASE_URL, function(err, client) {
         if (err) {
           console.log("error pa getTemp")
