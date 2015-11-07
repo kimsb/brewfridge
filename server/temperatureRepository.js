@@ -16,6 +16,7 @@ function insertTemp(temp) {
           console.log("Insert temperature with id: " + result.rows[0].id)
         }
       });
+      client.end();
   });
 }
 
@@ -37,6 +38,7 @@ function getTemp(response) {
         query.on('end', function(result) {
             response.send(result.rows);
           });
+        client.end();
         });
       }
 

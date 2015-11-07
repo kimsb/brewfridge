@@ -5,7 +5,7 @@ var temperature = require('./server/temperature.js');
 var tempRepo = require('./server/temperatureRepository.js');
 var currentTemp = 0;
 var target = 15;
-var interval = 1000*60;
+var interval = 1000*30;
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/client'));
