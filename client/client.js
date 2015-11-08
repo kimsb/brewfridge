@@ -1,7 +1,7 @@
- var url = "https://brew-fridge.herokuapp.com";
-//var url = "http://localhost:5000";
+// var url = "https://brew-fridge.herokuapp.com";
+var url = process.env.BREW_URL;
 var graph = require('./graph.js');
-
+var deviceId = process.env.PHOTON_ID_1;
 function start() {
   $.post(url + "/start", function(data) {});
 }
