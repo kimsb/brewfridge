@@ -1,7 +1,6 @@
-// var url = "https://brew-fridge.herokuapp.com";
-var url = process.env.BREW_URL;
+var url = "https://brew-fridge.herokuapp.com";
+//var url = "http://localhost:5000";
 var graph = require('./graph.js');
-var deviceId = process.env.PHOTON_ID_1;
 function start() {
   $.post(url + "/start", function(data) {});
 }
@@ -11,8 +10,6 @@ function stop() {
 }
 
 $(document).ready(function() {
-  var photonUrl = "https://api.particle.io/v1/devices/310019000447343337373739/temp"
-    //var url = "http://localhost:5000";
   var data = {
     on: true
   };
