@@ -41,31 +41,25 @@ function getIsPowerOn(){
 }
 
 function start() {
-  if(!isPowerOn){
-    console.log("Starter tellstick");
-    cloud.onOffDevice(device, true, function (err, result) {
-      if(err){
-         console.log("start error /n" + err);
-         return;
-      }
-      isPowerOn = true;
-    });
-  }
-
+  console.log("Starter tellstick");
+  cloud.onOffDevice(device, true, function (err, result) {
+    if(err){
+       console.log("start error /n" + err);
+       return;
+    }
+    isPowerOn = true;
+  });
 }
 
 function stop() {
-  if(isPowerOn){
-    console.log("Stopper tellstick");
-    cloud.onOffDevice(device, false, function (err, result) {
-      if(err) {
-        console.log("Stop error /n" + err);
-        return;
-      }
-      isPowerOn = false;
-    });
-  }
-
+  console.log("Stopper tellstick");
+  cloud.onOffDevice(device, false, function (err, result) {
+    if(err) {
+      console.log("Stop error /n" + err);
+      return;
+    }
+    isPowerOn = false;
+  });
 }
 
 
