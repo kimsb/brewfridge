@@ -1,6 +1,6 @@
 //var url = "https://brew-fridge.herokuapp.com";
 //var url = "http://localhost:5000";
-var url = "http://brew-fridge.azurewebsites.net"
+var url = "https://brew-fridge.azurewebsites.net"
 var graph = require('./graph.js');
 
 function start() {
