@@ -36,6 +36,7 @@ function getTemp(response) {
           });
 
         query.on('end', function(result) {
+            response.addHeader("Access-Control-Allow-Origin");
             response.send(result.rows);
           });
           done();
