@@ -34,7 +34,6 @@ app.get('/data', function (request, response) {
 
 app.get('/currentTemp', function (request, response) {
   var responseObj = {temp: currentTemp, isOn: tellstick.getIsPowerOn()};
-  response.addHeader("Access-Control-Allow-Origin");
   response.send(responseObj);
 })
 setInterval(fridgeController, interval);
