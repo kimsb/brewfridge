@@ -4,7 +4,8 @@ var tellstick = require('./server/tellstick.js');
 var temperature = require('./server/temperature.js');
 var tempRepo = require('./server/temperatureRepository.js');
 var currentTemp = 0;
-var target = 15.0;
+var target = 20.0;
+var threshold = 0.5
 var interval = 1000*30;
 app.set('port', (process.env.PORT || 5000));
 
@@ -19,12 +20,12 @@ app.listen(app.get('port'), function() {
 });
 
 app.post('/start', function(request, response){
-    tellstick.start(request, response);
+    tellstick.startFridge(request, response);
     response.sendStatus(200);
 });
 
 app.post('/stop', function(request, response){
-    tellstick.stop(request, response);
+    tellstick.stopFridge(request, response);
     response.sendStatus(200);
 });
 
@@ -33,7 +34,7 @@ app.get('/data', function (request, response) {
 });
 
 app.get('/currentTemp', function (request, response) {
-  var responseObj = {temp: currentTemp, isOn: tellstick.getIsPowerOn()};
+  var responseObj = {temp: currentTemp, isOn: tellstick.getisFridgeOn()};
   response.send(responseObj);
 })
 setInterval(fridgeController, interval);
@@ -46,16 +47,20 @@ function fridgeController () {
 function onGetTemperature(temp){
   console.log("Temperatur er: " +temp);
   if(temp != -127){
-    tempRepo.insertTemp(temp);
     currentTemp = temp.toFixed(2);
-    if(temp > target) {
-      tellstick.start();
+    tempRepo.insertTemp(currentTemp);
+
+    if(temp > target + threshold) {
+      tellstick.startFridge();
     }
-    else if (temp < target) {
-      tellstick.stop();
+    else if (temp < target - threshold) {
+      tellstick.startHeater();
     }
-    else{
-      console.log("Temperaturen er fin gjor ingen ting");
+    if(temp > target){
+      tellstick.stopHeater()
+    }
+    else if(temp < target) {
+      tellstick.stopFridge();
     }
   } else {
     console.log("Klarte ikke lese temperatur. Henter på nytt");
