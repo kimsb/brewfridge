@@ -4,7 +4,7 @@ var tellstick = require('./server/tellstick.js');
 var temperature = require('./server/temperature.js');
 var tempRepo = require('./server/temperatureRepository.js');
 var currentTemp = 0;
-var target = 15;
+var target = 15.0;
 var interval = 1000*30;
 app.set('port', (process.env.PORT || 5000));
 
