@@ -50,18 +50,20 @@ function onGetTemperature(temp){
     currentTemp = temp.toFixed(2);
     tempRepo.insertTemp(currentTemp);
 
-    if(temp > target + threshold) {
+    if(temp > target) {
       tellstick.startFridge();
+      tellstick.stopHeater();
     }
-    else if (temp < target - threshold) {
+    else if (temp < target) {
       tellstick.startHeater();
-    }
-    if(temp > target){
-      tellstick.stopHeater()
-    }
-    else if(temp < target) {
       tellstick.stopFridge();
     }
+    // if(temp > target){
+    //   tellstick.stopHeater()
+    // }
+    // else if(temp < target) {
+    //   tellstick.stopFridge();
+    // }
   } else {
     console.log("Klarte ikke lese temperatur. Henter på nytt");
     fridgeController();
