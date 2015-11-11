@@ -34,7 +34,7 @@ app.get('/data', function (request, response) {
 });
 
 app.get('/currentTemp', function (request, response) {
-  var responseObj = {temp: currentTemp, isOn: tellstick.getisFridgeOn()};
+  var responseObj = {temp: currentTemp, isFridgeOn: tellstick.getIsFridgeOn(), isHeaterOn: tellstick.getIsHeaterOn};
   response.send(responseObj);
 })
 setInterval(fridgeController, interval);
