@@ -72,7 +72,18 @@ function hasDate(dates, dateToCheck) {
 }
 
 function formatDateString(date) {
-  return date.getHours() +":"+ date.getMinutes() +":"+ date.getSeconds();
+  var hours = convertToClockFormat(date.getHours());
+  var minutes = convertToClockFormat(date.getMinutes());
+  var seconds = convertToClockFormat(date.getSeconds());
+  return hours +":"+ minutes +":"+ seconds;
 }
+
+function convertToClockFormat(timeUnit) {
+  if(timeUnit < 10) {
+    return "0" + timeUnit
+  }
+  return timeUnit;
+}
+
 
 module.exports.buildGraph = buildGraph;
