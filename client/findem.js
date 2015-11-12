@@ -20,14 +20,15 @@ var d3 = require('d3');
 var c3 = require('./libs/c3-0.4.10/c3.min.js');
 
 function buildGraph(data) {
+  data = _.sortBy(data, 'id');
   var labels =[];
   var dataset = [];
   _.map(data, function (measurement) {
     labels.push(new Date(measurement.date_measured));
     dataset.push(measurement.temp);
   });
-  // console.log(labels);
-  // console.log(dataset);
+
+
   dataset = _.filter(dataset, function (element) {
     return element !== null;
   })
@@ -65,7 +66,7 @@ function buildGraph(data) {
       },
       tooltip: {
         format: {
-          name: function (name, ratio, id, index) { return formatDateString(labels[index]) },
+          name: function (name, ratio, id, index) { return formatDateString(labels[index]) +" , id:" + data[index-1].id  },
           value: function (value, ratio, id, index) { return (value).toFixed(2) + "\xB0 C"; }
         }
       },

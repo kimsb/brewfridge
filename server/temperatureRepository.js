@@ -30,7 +30,7 @@ function getTemp(response) {
             return;
         }
 
-        var query = client.query('SELECT date_measured, temp FROM temperature');
+        var query = client.query('SELECT date_measured, temp, id FROM temperature');
         var rows = [];
 
         query.on('row', function(row, result) {
