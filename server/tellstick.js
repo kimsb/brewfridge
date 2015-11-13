@@ -47,7 +47,6 @@ function getIsHeaterOn() {
 }
 
 function startFridge() {
-  console.log("Starter kjøleskap");
   cloud.onOffDevice(fridgeId, true, function (err, result) {
     if(err){
        console.log("start error /n" + err);
@@ -58,7 +57,6 @@ function startFridge() {
 }
 
 function stopFridge() {
-  console.log("Stopper kjøleskap");
   cloud.onOffDevice(fridgeId, false, function (err, result) {
     if(err) {
       console.log("Stop error /n" + err);
@@ -69,7 +67,6 @@ function stopFridge() {
 }
 
 function startHeater() {
-  console.log("Start ovn");
   cloud.onOffDevice(heaterId, true, function (err, result) {
     if(err){
       console.log("start error /n" + err);
@@ -80,7 +77,6 @@ function startHeater() {
 }
 
 function stopHeater() {
-  console.log("Stopper varmeovn");
   cloud.onOffDevice(heaterId, false, function (err, result) {
     if(err) {
       console.log("Stop error /n" + err);

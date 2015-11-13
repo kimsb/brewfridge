@@ -14,7 +14,7 @@ function insertTemp(temp) {
         if (err) {
           console.log(err)
         } else {
-          console.log("Insert temperature with id: " + result.rows[0].id)
+        //  console.log("Insert temperature with id: " + result.rows[0].id)
         }
       });
       done();

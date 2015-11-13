@@ -3,10 +3,10 @@ var app = express();
 var tellstick = require('./server/tellstick.js');
 var temperature = require('./server/temperature.js');
 var tempRepo = require('./server/temperatureRepository.js');
-var currentTemp = 0;
-var target = 20.0;
-var threshold = 0.5
+var thermostat = require('./server/thermostat');
+
 var interval = 1000*30;
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/client'));
@@ -49,23 +49,9 @@ function onGetTemperature(temp){
   if(temp != -127){
     currentTemp = temp.toFixed(2);
     tempRepo.insertTemp(currentTemp);
-
-    if(temp > target) {
-      tellstick.startFridge();
-      tellstick.stopHeater();
-    }
-    else if (temp < target) {
-      tellstick.startHeater();
-      tellstick.stopFridge();
-    }
-    // if(temp > target){
-    //   tellstick.stopHeater()
-    // }
-    // else if(temp < target) {
-    //   tellstick.stopFridge();
-    // }
-  } else {
-    console.log("Klarte ikke lese temperatur. Henter på nytt");
+    thermostat.controlTemperature(temp);
+  }
+  else{
     fridgeController();
   }
 }
