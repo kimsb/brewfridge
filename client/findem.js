@@ -57,8 +57,8 @@ function buildGraph(data) {
               }
           },
           y: {
-            max: maxValue + 2,
-            min: minValue -2,
+            max: maxValue + 0.5,
+            min: minValue -0.5,
           }
       },
       zoom: {
