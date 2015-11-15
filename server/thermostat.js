@@ -3,13 +3,12 @@ var tellstick = require('./tellstick.js');
 var lastTemp;
 var currentTemp = 0;
 
-var target = 20.0;
-var threshold = 0.5
+var target = 19.0;
 
-var highThresh =20.25
-var lowThresh = 19.75
+var highThresh =19.25;
+var lowThresh = 18.75;
 
-fridgeHighThresh = 20.35
+fridgeHighThresh = 19.35
 function controlTemperature(temp){
     var deltaTemp = temp-lastTemp;
 
