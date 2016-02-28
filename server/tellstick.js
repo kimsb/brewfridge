@@ -1,13 +1,14 @@
 var TelldusAPI = require('telldus-live');
 
-var publicKey    = process.env.TELDUS_PUBLICKEY
-  , privateKey   = process.env.TELDUS_PRIVATEKEY
-  , token        = process.env.TELDUS_TOKEN
-  , tokenSecret  = process.env.TELDUS_TOKEN_SECRET
+var publicKey    = process.env.TELLDUS_PUBLICKEY
+  , privateKey   = process.env.TELLDUS_PRIVATEKEY
+  , token        = process.env.TELLDUS_TOKEN
+  , tokenSecret  = process.env.TELLDUS_TOKEN_SECRET
+    , fridge_env   = process.env.FRIDGE_ID
   , cloud;
 
 
-var fridgeId = {id: 927588};
+var fridgeId = {id: fridge_env};
 var heaterId ={id: 989609};
 var isFridgeOn = true;
 var isHeaterOn = true;
