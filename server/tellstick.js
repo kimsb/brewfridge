@@ -9,9 +9,9 @@ var publicKey    = process.env.TELLDUS_PUBLICKEY
 
 
 var fridgeId = {id: fridge_env};
-var heaterId ={id: 989609};
+//var heaterId ={id: 989609};
 var isFridgeOn = true;
-var isHeaterOn = true;
+//var isHeaterOn = true;
 
 cloud = new TelldusAPI.TelldusAPI({ publicKey  : publicKey, privateKey : privateKey })
 			.login(token, tokenSecret, loginCallback)
@@ -43,9 +43,9 @@ function deviceCallback (error, devices) {
 function getIsFridgeOn(){
   return isFridgeOn;
 }
-function getIsHeaterOn() {
+/*function getIsHeaterOn() {
   return isHeaterOn;
-}
+}*/
 
 function startFridge() {
   cloud.onOffDevice(fridgeId, true, function (err, result) {
@@ -67,7 +67,7 @@ function stopFridge() {
   });
 }
 
-function startHeater() {
+/*function startHeater() {
   cloud.onOffDevice(heaterId, true, function (err, result) {
     if(err){
       console.log("start error /n" + err);
@@ -85,7 +85,7 @@ function stopHeater() {
     }
     isHeaterOn = false;
   });
-}
+}*/
 
 
 
@@ -93,6 +93,6 @@ module.exports.getIsFridgeOn = getIsFridgeOn;
 module.exports.startFridge = startFridge;
 module.exports.stopFridge = stopFridge;
 
-module.exports.getIsHeaterOn = getIsHeaterOn;
+/*module.exports.getIsHeaterOn = getIsHeaterOn;
 module.exports.startHeater = startHeater;
-module.exports.stopHeater = stopHeater;
+module.exports.stopHeater = stopHeater;*/

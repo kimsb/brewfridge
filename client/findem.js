@@ -9,8 +9,8 @@ $(document).ready(function() {
 
   $.get(url + "/currentTemp", function(data) {
     var fridgeStatus = data.isFridgeOn ? "på" : "av";
-    var heaterStatus = data.isHeaterOn ? "på" : "av";
-    $(".result").html(data.temp + "\xB0 C er temperaturen nå og kjøleskapet er " + fridgeStatus + " og varmeovnen er " + heaterStatus);
+    /*var heaterStatus = data.isHeaterOn ? "på" : "av";*/
+    $(".result").html(data.temp + "\xB0 C er temperaturen nå og kjøleskapet er " + fridgeStatus); /* + " og varmeovnen er " + heaterStatus);*/
   });
 });
 
