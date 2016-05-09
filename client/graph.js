@@ -15,8 +15,12 @@ function buildGraph(data) {
   dataset = _.filter(dataset, function (element) {
     return element !== null;
   })
-  maxValue = _.max(dataset);
-  minValue = _.min(dataset);
+  maxValue = _.max(dataset, function(entry) {
+      return entry.temp;
+  });
+  minValue = _.min(dataset, function(entry) {
+      return entry.temp;
+  });
 
   var ticks = getTickValues(labels);
   labels.unshift('x');
