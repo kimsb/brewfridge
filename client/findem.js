@@ -20,7 +20,7 @@ var d3 = require('d3');
 var c3 = require('./libs/c3-0.4.10/c3.min.js');
 var data;
 function buildGraph(data) {
-  data = _.sortBy(data, 'id');
+  data = _.sortBy(data, 'date_measured');
   var labels =[];
   var dataset = [];
   _.map(data, function (measurement) {
