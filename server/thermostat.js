@@ -3,7 +3,7 @@ var tellstick = require('./tellstick.js');
 var lastTemp;
 var currentTemp = 0;
 
-var target = 12.0;
+var target = 20.0;
 
 
 fridgeHighThresh = 19.35
