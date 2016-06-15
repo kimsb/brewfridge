@@ -18,7 +18,6 @@ var options = {
 
 
 function getTemperature(callback) {
-    console.log("start getTemperature");
   request(options, function (error, response, body) {
     if(error){
       console.log("Photon error: /n" +error);

@@ -46,7 +46,6 @@ function fridgeController () {
 }
 
 function onGetTemperature(temp){
-  console.log("Temperatur er: " +temp);
   if(temp != -127){
     currentTemp = temp.toFixed(2);
     tempRepo.insertTemp(currentTemp);
