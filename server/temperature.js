@@ -18,6 +18,7 @@ var options = {
 
 
 function getTemperature(callback) {
+    console.log("start getTemperature");
   request(options, function (error, response, body) {
     if(error){
       console.log("Photon error: /n" +error);
@@ -28,7 +29,9 @@ function getTemperature(callback) {
          console.log(data.result);
          callback(data.result);
      }
+      console.log("respons status: " + response.statusCode + ", data: " + data.result)
   })
+    console.log("ferdig getTemperature - response: " + response.statusCode);
 
 }
 
