@@ -24,9 +24,7 @@ function getTemperature(callback) {
       console.log("Photon error: /n" +error);
     }
      if (!error && response.statusCode == 200) {
-         // Print out the response body
          var data = JSON.parse(body);
-         console.log(data.result);
          callback(data.result);
      }
       console.log("respons status: " + response.statusCode + ", data: " + data.result)
