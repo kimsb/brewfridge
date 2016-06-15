@@ -31,8 +31,6 @@ function getTemperature(callback) {
      }
       console.log("respons status: " + response.statusCode + ", data: " + data.result)
   })
-    console.log("ferdig getTemperature - response: " + response.statusCode);
-
 }
 
 
