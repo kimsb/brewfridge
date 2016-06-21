@@ -3,9 +3,8 @@ var app = express();
 var tellstick = require('./server/tellstick.js');
 var temperature = require('./server/temperature.js');
 var tempRepo = require('./server/temperatureRepository.js');
-// var thermostat = require('./server/thermostat');
 var thermostat = require('./server/thermostat.js');
-var interval = 1000*30;
+var interval = 1000*10; //hvert 10. sekund
 
 app.set('port', (process.env.PORT || 5000));
 
