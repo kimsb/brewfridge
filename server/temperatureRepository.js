@@ -1,29 +1,33 @@
 var pg = require('pg');
+var dbURL = process.env.DATABASE_URL;
+
+var lastTemp = 0.0;
 
 function insertTemp(temp) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    if(err){
-      console.log("error i pg connection");
-      done();
-      return;
-    }
-
-    client.query('INSERT INTO temperature (date_measured, temp)' +
-      'VALUES ($1,$2) RETURNING id', [new Date(), temp],
-      function(err, result) {
-        if (err) {
-          console.log(err)
-        } else {
-        //  console.log("Insert temperature with id: " + result.rows[0].id)
+    pg.connect(dbURL, function(err, client, done) {
+        if(err){
+            console.log("error i pg connection");
+            done();
+            return;
         }
-      });
-      done();
-  });
+
+        if(temp !== lastTemp) {
+            lastTemp = temp;
+            client.query('INSERT INTO temperature (date_measured, temp)' +
+                'VALUES ($1,$2) RETURNING id', [new Date(), temp],
+                function (err, result) {
+                    if (err) {
+                        console.log(err);
+                    }
+                });
+        }
+        done();
+    });
 }
 
 function getTemp(response) {
-  console.log("get Temp i repo kallt");
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    console.log("get Temp i repo kallt");
+    pg.connect(dbURL, function(err, client, done) {
         if(err) {
             console.log("error i pg connection");
             done()
@@ -35,15 +39,15 @@ function getTemp(response) {
 
         query.on('row', function(row, result) {
             result.addRow(row);
-          });
+        });
 
         query.on('end', function(result) {
             response.send(result.rows);
-          });
-          done();
         });
-      }
+        done();
+    });
+}
 
 
-      module.exports.insertTemp = insertTemp;
-      module.exports.getTemp = getTemp;
+module.exports.insertTemp = insertTemp;
+module.exports.getTemp = getTemp;
