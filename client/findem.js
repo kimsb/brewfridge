@@ -66,7 +66,7 @@ function buildGraph(data) {
       },
       tooltip: {
         format: {
-          name: function (name, ratio, id, index) { return formatDateString(labels[index]) +" , id:" + data[index-1].id  },
+          name: function (name, ratio, id, index) { return formatDateString(labels[index]) },
           value: function (value, ratio, id, index) { return (value).toFixed(2) + "\xB0 C"; }
         }
       },
