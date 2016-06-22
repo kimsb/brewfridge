@@ -40,7 +40,6 @@ setInterval(fridgeController, interval);
 
 fridgeController();
 function fridgeController () {
-    console.log("fridgeController kalles.");
   temperature.getTemperature(onGetTemperature);
 }
 

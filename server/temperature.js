@@ -26,7 +26,7 @@ function getTemperature(callback) {
          var data = JSON.parse(body);
          callback(data.result);
      }
-      console.log("response status: " + response.statusCode + (data ? "data: " + data.result : ""));
+      console.log("response status: " + response.statusCode + (data ? ", data: " + data.result : ""));
   })
 }
 
