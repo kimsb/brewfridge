@@ -1,6 +1,6 @@
 var tellstick = require('./tellstick.js');
 
-var target = 20.0;
+var target = 4.0;
 
 function controlTemperature(temp){
 
