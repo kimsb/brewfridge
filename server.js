@@ -5,6 +5,7 @@ var temperature = require('./server/temperature.js');
 var tempRepo = require('./server/temperatureRepository.js');
 var thermostat = require('./server/thermostat.js');
 var interval = 1000*10; //hvert 10. sekund
+var target = process.env.TARGET_TEMP;
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -33,7 +34,7 @@ app.get('/data', function (request, response) {
 });
 
 app.get('/currentTemp', function (request, response) {
-  var responseObj = {temp: currentTemp, isFridgeOn: tellstick.getIsFridgeOn()}; /* , isHeaterOn: tellstick.getIsHeaterOn};*/
+  var responseObj = {temp: currentTemp, isFridgeOn: tellstick.getIsFridgeOn(), target: target}; /* , isHeaterOn: tellstick.getIsHeaterOn};*/
   response.send(responseObj);
 })
 setInterval(fridgeController, interval);
