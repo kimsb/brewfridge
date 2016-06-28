@@ -16,6 +16,7 @@ var options = {
    headers: headers,
 }
 
+var timeoutCount = 0;
 
 function getTemperature(callback) {
   request(options, function (error, response, body) {
@@ -26,7 +27,10 @@ function getTemperature(callback) {
          var data = JSON.parse(body);
          callback(data.result);
      }
-      console.log("response status: " + response.statusCode + (data ? ", data: " + data.result : ""));
+      if (response.statusCode === 408) {
+          timeoutCount++;
+      }
+      console.log("response status: " + response.statusCode + (data ? ", data: " + data.result : "") + ", timeouts: " + timeoutCount);
   })
 }
 
