@@ -8,7 +8,7 @@ $(document).ready(function() {
 
   $.get(url + "/currentTemp", function(data) {
     var fridgeStatus = data.isFridgeOn ? "på" : "av";
-    $(".result").html("Måltemperatur: " + target + "\xB0C, temperatur: " + data.temp + "\xB0C - kjøleskapet er " + fridgeStatus);
+    $(".result").html("Måltemperatur: " + target + "\xB0 C, temperatur: " + data.temp + "\xB0 C - kjøleskapet er " + fridgeStatus);
   });
 });
 
