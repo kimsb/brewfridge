@@ -1,5 +1,5 @@
 var pg = require('pg');
-var dbURL = process.env.DATABASE_URL;
+var dbURL = process.env.HEROKU_POSTGRESQL_BLACK_URL;
 
 var lastTemp = 0.0;
 
